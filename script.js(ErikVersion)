@@ -1,0 +1,38 @@
+function Food(name, calories) {
+  this.name = name;
+  this.calories = parseInt(calories);
+}
+let foodItems = [
+  new Food("Banana", 105),
+  new Food("Hot Dog", 465)
+];
+console.log(foodItems);
+
+const foodNameInput = document.getElementById("foodName");
+const caloriesInput = document.getElementById("calories");
+const sbmtBtn = document.getElementById("sbmtBtn");
+const totalCaloriesDisplay = document.getElementById("totalCalories");
+
+
+let totalCalories = 0;
+foodItems.forEach(food => totalCalories += food.calories); 
+totalCaloriesDisplay.innerHTML = "Total Calories: " + totalCalories;
+
+
+sbmtBtn.addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent form submission
+  const foodName = foodNameInput.value;
+  const calories = caloriesInput.value;
+  
+
+  const newFoodItem = new Food(foodName, calories);
+  foodItems.push(newFoodItem);
+  console.log(foodItems);
+
+  totalCalories += newFoodItem.calories;
+  totalCaloriesDisplay.innerHTML = "Total Calories: " + totalCalories;
+  
+  // Reset form
+  foodNameInput.value = "";
+  caloriesInput.value = "";
+});
