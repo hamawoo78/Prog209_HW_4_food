@@ -32,7 +32,6 @@ sbmtBtn.addEventListener("click", function(event) {
   totalCalories += newFoodItem.calories;
   totalCaloriesDisplay.innerHTML = "Total Calories: " + totalCalories;
   
-  // Reset form
   foodNameInput.value = "";
   caloriesInput.value = "";
 });
